@@ -27,20 +27,17 @@ import com.hootsuite.nachos.validator.IllegalCharacterIdentifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
     private static String TAG = "Nachos";
     private static String[] SUGGESTIONS = new String[]{"Nachos", "Chip", "Tortilla Chips", "Melted Cheese", "Salsa", "Guacamole", "Cheddar", "Mozzarella", "Mexico", "Jalapeno"};
 
-    @BindView(R.id.info_body)
+//    @BindView(R.id.info_body)
     TextView mInfoBodyView;
-    @BindView(R.id.nacho_text_view)
+//    @BindView(R.id.nacho_text_view)
     NachoTextView mNachoTextView;
-    @BindView(R.id.nacho_text_view_with_icons)
+//    @BindView(R.id.nacho_text_view_with_icons)
     NachoTextView mNachoTextViewWithIcons;
 
     @SuppressWarnings("deprecation")
@@ -48,8 +45,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-
+//        ButterKnife.bind(this);
+        mInfoBodyView = (TextView)findViewById(R.id.info_body) ;
+        mNachoTextView = (NachoTextView)findViewById(R.id.nacho_text_view) ;
+        mNachoTextViewWithIcons = (NachoTextView)findViewById(R.id.nacho_text_view_with_icons) ;
         Spanned infoText;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             infoText = Html.fromHtml(getString(R.string.info_text_body), Html.FROM_HTML_MODE_LEGACY);
@@ -109,26 +108,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unused")
-    @OnClick(R.id.list_chip_values)
-    public void listChipValues(View view) {
-        List<String> chipValues = mNachoTextView.getChipValues();
-        alertStringList("Chip Values", chipValues);
-    }
-
-    @SuppressWarnings("unused")
-    @OnClick(R.id.list_chip_and_token_values)
-    public void listChipAndTokenValues(View view) {
-        List<String> chipAndTokenValues = mNachoTextView.getChipAndTokenValues();
-        alertStringList("Chip and Token Values", chipAndTokenValues);
-    }
-
-    @SuppressWarnings("unused")
-    @OnClick(R.id.to_string)
-    public void toastToString(View view) {
-        List<String> strings = new ArrayList<>();
-        strings.add(mNachoTextView.toString());
-        alertStringList("toString()", strings);
-    }
+//    @OnClick(R.id.list_chip_values)
+//    public void listChipValues(View view) {
+//        List<String> chipValues = mNachoTextView.getChipValues();
+//        alertStringList("Chip Values", chipValues);
+//    }
+//
+//    @SuppressWarnings("unused")
+//    @OnClick(R.id.list_chip_and_token_values)
+//    public void listChipAndTokenValues(View view) {
+//        List<String> chipAndTokenValues = mNachoTextView.getChipAndTokenValues();
+//        alertStringList("Chip and Token Values", chipAndTokenValues);
+//    }
+//
+//    @SuppressWarnings("unused")
+//    @OnClick(R.id.to_string)
+//    public void toastToString(View view) {
+//        List<String> strings = new ArrayList<>();
+//        strings.add(mNachoTextView.toString());
+//        alertStringList("toString()", strings);
+//    }
 
     private void alertStringList(String title, List<String> list) {
         String alertBody;
